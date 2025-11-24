@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Salahmardooh Team Raffle </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#5E654B" />
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="./css/index.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<!-- CONFIG RECEIVED FROM EMBED PAGE -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const DATA_URL = params.get("data");
+    const pageId = params.get("name");
+  </script>
+
+  <!-- Main Hero Section -->
+  <div class="hero">
+    <div class="hero-background">
+      <div class="logos">
+        <img src="img/logo.png" alt="Salahmardoon Team Logo" class="main-logo">
+      </div>
+      <div class="content-wrapper">
+        <h1 class="team-title"><img src="img/Headling.png" alt="Salahmardoond Team Event 2025" class="headline-logo"></h1>
+        <!--
+        <h2 class="event-title">RECOGNITION & AWARD EVENT</h2>
+      -->
+        <h3 class="raffle-title">RAFFLE DRAW</h3>
+        <div class="decorative-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Input Section -->
+  <div class="input-section">
+    <div class="input-container">
+      <!-- Status Selector -->
+      <div class="input-wrapper">
+  <label for="status-select" class="input-label">Select Status</label>
+  <select id="status-select" name="status-select" class="input-field">
+    <option value="General">🎯 General (All Statuses)</option>
+    <option value="Member">Member</option>
+    <option value="Distributor">Distributor</option>
+    <option value="Manager">Manager</option>
+    <option value="Senior Manager">Senior Manager</option>
+    <option value="Executive Manager">Executive Manager</option>
+    <option value="Director">Director</option>
+    <option value="Emerald Director">Emerald Director</option>
+    <option value="Sapphire Director">Sapphire Director</option>
+    <option value="1 Ruby Director">1 Ruby Director</option>
+    <option value="2 Ruby Director">2 Ruby Director</option>
+    <option value="3 Ruby Director">3 Ruby Director</option>
+  </select>
+</div>
+
+      <!-- Winner Count -->
+      <div class="input-wrapper">
+        <label for="winner-count" class="input-label">Number of Lucky Winners</label>
+        <input type="number" id="winner-count" name="winner-count" placeholder="Enter number..." min="1" max="100">
+      </div>
+
+      <!-- Draw Button -->
+      <button class="draw-button" id="drawButton">
+        <span class="button-text">ROLL THE DRAW!</span>
+        <div class="button-glow"></div>
+      </button>
+    </div>
+  </div>
+
+  <!-- Results Display Modal -->
+  <div id="resultsModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>🎉 LUCKY WINNERS 🎉</h2>
+        <button class="close-button" id="closeModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="loader" class="loader">
+          <div class="spinner"></div>
+          <p>Drawing winners...</p>
+        </div>
+        <div id="winnersList" class="winners-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div id="errorMessage" class="error-message">
+      <h3>⚠️ Failed to get data. Please refresh the page.</h3>
+    </div>
+    <div class="member-count">
+      <h3>Total Registered Members: <span class="count-number" id="memberCount">0</span></h3>
+    </div>
+    <div class="footer-decoration"></div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
